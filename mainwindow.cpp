@@ -62,7 +62,7 @@ void MainWindow::on_addFile_clicked()
     create.exec();
 
     QDynamicButton *button = new QDynamicButton(temp,this);  // Create a dynamic button object
-    button->setText("File " + QString::number(button->getID())+"\nname: "+QString::fromStdString(temp));
+    button->setText(QString::fromStdString("File ") +QString::fromStdString("\nname: ")+QString::fromStdString(temp));
     connect(button, SIGNAL(clicked()), this, SLOT(SlotGetNumber()));
     ui->horizontalLayout_2->addWidget(button);
 }
