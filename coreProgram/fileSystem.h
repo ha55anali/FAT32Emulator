@@ -1,8 +1,8 @@
 #pragma once
 
-#include "block.h"
-#include "list.h"
-#include "file.h"
+#include "coreProgram/block.h"
+#include "coreProgram/list.h"
+#include "coreProgram/file.h"
 
 #include <string>
 

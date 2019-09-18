@@ -1,4 +1,6 @@
-#include "fileSystem.h"
+#include "coreProgram/fileSystem.h"
+#include <cmath>
+#include <iostream>
 
 fileSystem::fileSystem(int sectors, int sectorSize)
 {

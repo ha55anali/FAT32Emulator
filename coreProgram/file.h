@@ -1,7 +1,7 @@
 #pragma once
-#include "list"
+#include "coreProgram/list.h"
 #include <string>
-#include "block.h"
+#include "coreProgram/block.h"
 #include <iostream>
 
 class File {
@@ -18,7 +18,15 @@ public:
 	block& getBlock(int n);
 
 	void operator=(File const&);
-	friend std::ostream& operator<<(std::ostream& os, File &);
+    friend std::ostream& operator<<(std::ostream& os, File & f){
+        using namespace std;
+        cout << "file name:" << f.name << "	";
+        cout << "file size:" << f.size << "	";
+        cout << "blocks: ";
+        f.blockList.print();
+
+        return os;
+    }
 private:
 	std::string name;
 	int size;

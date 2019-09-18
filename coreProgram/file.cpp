@@ -1,4 +1,4 @@
-#include "file.h"
+#include "coreProgram/file.h"
 
 File::File(std::string n, int s):blockList() {
 	name = n;
@@ -27,13 +27,3 @@ void File::operator=(File const& s)
 	size = s.size;
 }
 
-std::ostream& operator<<(std::ostream& os, File const& f)
-{
-	using namespace std;
-	cout << "file name:" << f.name << "	";
-	cout << "file size:" << f.size << "	";
-	cout << "blocks: ";
-	f.blockList.print();
-
-	return os;
-}
