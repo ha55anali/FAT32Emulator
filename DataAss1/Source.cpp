@@ -31,7 +31,7 @@ int checkIntInput(int lowerbound = 0, int upperbound = 0) {
 		while (lowerbound > tempint|| tempint > upperbound) {
 			cout << "enter a number within range: ";
 			cin >> temp;
-			tempint = stoi(temp);
+			tempint = checkIntInput(lowerbound,upperbound); 
 		}
 	}
 
@@ -50,9 +50,11 @@ void createFile(fileSystem* f) {
 	std::string fname;
 	std::string fcontent;
 	cout << endl << "enter name of the file: ";
-	cin >> fname;
+	cin.ignore();
+	getline(cin, fname);
 	cout << endl << "enter content of the file: ";
-	cin >> fcontent;
+	cin.ignore();
+	getline(cin, fcontent);
 
 	try {
 		f->saveFile(fname, fcontent, fcontent.size());
@@ -65,7 +67,8 @@ void createFile(fileSystem* f) {
 void deleteFile(fileSystem* f) {
 	std::string fname;
 	cout << endl << "enter name of the file to delete: ";
-	cin >> fname;
+	cin.ignore();
+	getline(cin, fname);
 	try {
 		f->deleteFile(fname);
 	}
@@ -77,7 +80,8 @@ void deleteFile(fileSystem* f) {
 void outputFile(fileSystem* f) {
 	std::string fname;
 	cout << endl << "enter name of the file to print: ";
-	cin >> fname;
+	cin.ignore();
+	getline(cin, fname);
 	try {
 		cout << "content: " << f->readFile(fname)<<endl;
 	}
@@ -123,6 +127,7 @@ void main(){
 	choice = checkIntInput(1, 5);
 
 	while (performAction(fS, choice) == 0) {
+		system("pause");
 		showMenu();
 		cout << "enter choice: ";
 		choice = checkIntInput(1, 5);
